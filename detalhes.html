@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AniSearch — Detalhes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <div class="container d-flex align-items-center justify-content-between py-3">
+        <a href="index.html" class="logo">
+          <span class="logo-jp">アニ</span>
+          <span class="logo-en">AniSearch</span>
+        </a>
+        <a href="index.html" class="btn-back">
+          <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+      </div>
+    </header>
+
+    <main class="container py-5" style="position:relative;">
+
+      <!-- Banner de fundo — dentro do main, não fixo -->
+      <div class="detail-banner-bg" id="detailBanner"></div>
+
+      <!-- Loading -->
+      <div id="loadingState" class="text-center py-5" style="position:relative;z-index:1;">
+        <div class="spinner-custom mx-auto mb-3"></div>
+        <p class="loading-text">Carregando detalhes...</p>
+      </div>
+
+      <!-- Erro -->
+      <div id="errorState" class="d-none text-center py-5" style="position:relative;z-index:1;">
+        <div class="alert-custom text-center mx-auto">
+          <i class="bi bi-exclamation-triangle-fill fs-2 mb-2 d-block"></i>
+          <p id="errorMessage" class="mb-0">Não foi possível carregar o anime.</p>
+          <a href="index.html" class="btn btn-search mt-3 d-inline-block">Voltar ao início</a>
+        </div>
+      </div>
+
+      <!-- Conteúdo -->
+      <div id="animeContent" class="d-none detail-page-wrapper">
+        <div class="row g-4">
+
+          <!-- Coluna esquerda -->
+          <div class="col-12 col-md-3">
+            <div class="detail-poster-wrapper">
+              <img id="detailPoster" src="" alt="" class="detail-poster" />
+            </div>
+            <div class="detail-stats mt-3">
+              <div class="stat-item">
+                <span class="stat-label">Nota MAL</span>
+                <span class="stat-value gold" id="detailScore">—</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Ranking</span>
+                <span class="stat-value" id="detailRank">—</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Popularidade</span>
+                <span class="stat-value" id="detailPopularity">—</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Membros</span>
+                <span class="stat-value" id="detailMembers">—</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Favoritos</span>
+                <span class="stat-value" id="detailFavorites">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna direita -->
+          <div class="col-12 col-md-9">
+            <div class="detail-header">
+              <h1 class="detail-title" id="detailTitle">—</h1>
+              <p class="detail-title-jp" id="detailTitleJp"></p>
+              <div class="detail-badges" id="detailBadges"></div>
+            </div>
+
+            <div class="detail-section">
+              <h3 class="detail-section-title">Sinopse</h3>
+              <p class="detail-synopsis" id="detailSynopsis">—</p>
+            </div>
+
+            <div class="detail-info-grid" id="detailInfoGrid"></div>
+
+            <div class="detail-section" id="genresSection">
+              <h3 class="detail-section-title">Gêneros</h3>
+              <div class="detail-genres" id="detailGenres"></div>
+            </div>
+
+            <div class="detail-section d-none" id="trailerSection">
+              <h3 class="detail-section-title">Trailer</h3>
+              <div class="trailer-wrapper">
+                <iframe id="detailTrailer" src="" allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a id="detailMALLink" href="#" target="_blank" class="btn-mal">
+                <i class="bi bi-box-arrow-up-right"></i> Ver no MyAnimeList
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer text-center py-4">
+      <p class="mb-0">Dados por <a href="https://jikan.moe" target="_blank">Jikan API</a> &mdash; Projeto AV1 · DWB</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/detalhes.js"></script>
+  </body>
+</html>
