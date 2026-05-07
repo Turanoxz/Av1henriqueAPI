@@ -382,3 +382,135 @@ a { text-decoration: none; color: inherit; }
   .detail-info-grid { grid-template-columns: 1fr 1fr; }
   .page-btn { min-width: 32px; height: 32px; font-size: 0.78rem; }
 }
+
+/* ── Favoritos ──────────────────────────────────────────────── */
+
+/* Link no header */
+.header-fav-link {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  transition: color 0.2s;
+  display: flex; align-items: center; gap: 5px;
+}
+.header-fav-link:hover { color: var(--accent); }
+.header-fav-link .bi-heart-fill { color: var(--accent); }
+
+/* Botão favoritar na página de detalhes */
+.btn-fav {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.88rem; font-weight: 700;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn-fav:hover {
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+.btn-fav-ativo {
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.88rem; font-weight: 700;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+.btn-fav-ativo:hover { opacity: 0.8; }
+
+/* Toast de feedback */
+.fav-toast {
+  position: fixed;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: #1e1e2e;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 999;
+  white-space: nowrap;
+}
+.fav-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Card de favorito com botão de remover */
+.fav-card { position: relative; }
+.btn-remover-fav {
+  position: absolute;
+  top: 6px; right: 6px;
+  background-color: rgba(10,10,16,0.8);
+  border: none;
+  color: var(--accent);
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  transition: background-color 0.2s, transform 0.2s;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+.btn-remover-fav:hover {
+  background-color: var(--accent);
+  color: #fff;
+  transform: scale(1.15);
+}
+
+/* Botão limpar tudo */
+.btn-limpar-tudo {
+  background: transparent;
+  border: 1px solid #444;
+  color: var(--text-muted);
+  font-size: 0.8rem; padding: 5px 14px;
+  border-radius: 6px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-limpar-tudo:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Modal de confirmação */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background-color: rgba(0,0,0,0.75);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 500;
+  backdrop-filter: blur(4px);
+}
+.modal-box {
+  background-color: #1a1a2e;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem; max-width: 380px; width: 90%;
+  text-align: center;
+}
+.modal-title { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.75rem; }
+.modal-text { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem; }
+.btn-modal-cancel {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-muted); padding: 8px 20px;
+  border-radius: 8px; cursor: pointer; font-size: 0.88rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-modal-cancel:hover { border-color: #fff; color: #fff; }
+.btn-modal-confirm {
+  background-color: var(--accent); border: none; color: #fff;
+  padding: 8px 20px; border-radius: 8px; cursor: pointer;
+  font-size: 0.88rem; font-weight: 700;
+  transition: background-color 0.2s;
+}
+.btn-modal-confirm:hover { background-color: #c1121f; }

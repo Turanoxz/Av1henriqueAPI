@@ -17,24 +17,25 @@
           <span class="logo-jp">アニ</span>
           <span class="logo-en">AniSearch</span>
         </a>
-        <a href="index.html" class="btn-back">
-          <i class="bi bi-arrow-left"></i> Voltar
-        </a>
+        <div class="d-flex align-items-center gap-3">
+          <a href="favoritos.html" class="header-fav-link">
+            <i class="bi bi-heart-fill"></i> Favoritos
+          </a>
+          <a href="index.html" class="btn-back">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
+        </div>
       </div>
     </header>
 
     <main class="container py-5" style="position:relative;">
-
-      <!-- Banner de fundo — dentro do main, não fixo -->
       <div class="detail-banner-bg" id="detailBanner"></div>
 
-      <!-- Loading -->
       <div id="loadingState" class="text-center py-5" style="position:relative;z-index:1;">
         <div class="spinner-custom mx-auto mb-3"></div>
         <p class="loading-text">Carregando detalhes...</p>
       </div>
 
-      <!-- Erro -->
       <div id="errorState" class="d-none text-center py-5" style="position:relative;z-index:1;">
         <div class="alert-custom text-center mx-auto">
           <i class="bi bi-exclamation-triangle-fill fs-2 mb-2 d-block"></i>
@@ -43,11 +44,9 @@
         </div>
       </div>
 
-      <!-- Conteúdo -->
       <div id="animeContent" class="d-none detail-page-wrapper">
         <div class="row g-4">
 
-          <!-- Coluna esquerda -->
           <div class="col-12 col-md-3">
             <div class="detail-poster-wrapper">
               <img id="detailPoster" src="" alt="" class="detail-poster" />
@@ -76,7 +75,6 @@
             </div>
           </div>
 
-          <!-- Coluna direita -->
           <div class="col-12 col-md-9">
             <div class="detail-header">
               <h1 class="detail-title" id="detailTitle">—</h1>
@@ -105,7 +103,11 @@
               </div>
             </div>
 
-            <div class="mt-4">
+            <!-- Botões de ação -->
+            <div class="d-flex gap-3 flex-wrap mt-4">
+              <button id="btnFavoritar" type="button" class="btn-fav">
+                <i class="bi bi-heart"></i> Favoritar
+              </button>
               <a id="detailMALLink" href="#" target="_blank" class="btn-mal">
                 <i class="bi bi-box-arrow-up-right"></i> Ver no MyAnimeList
               </a>
@@ -115,6 +117,11 @@
         </div>
       </div>
     </main>
+
+    <!-- Toast de feedback -->
+    <div id="favToast" class="fav-toast">
+      <span id="favToastMsg"></span>
+    </div>
 
     <footer class="site-footer text-center py-4">
       <p class="mb-0">Dados por <a href="https://jikan.moe" target="_blank">Jikan API</a> &mdash; Projeto AV1 · DWB</p>
